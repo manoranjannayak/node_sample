@@ -1,2 +1,1 @@
-# node_sample
-Node sample code
+#jwt-authorization
