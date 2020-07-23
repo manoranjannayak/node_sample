@@ -8,4 +8,4 @@ This project ressembles the coding structure I follows in the projects.
 - NodeJS
 - Express Framework
 - CRUD
-- JWT
+- JWT token authorization
