@@ -8,11 +8,9 @@ class user {
         //Attributes
         this.email = data.email != undefined ? data.email : null;
         this.username = data.username != undefined ? data.username : null;
-        this.mobile_number = data.mobile_number != undefined ? data.mobile_number : null;
         this.password = data.password != undefined ? data.password : null;
-        this.token = data.token != undefined ? data.token : null;
 
-        this.key_array = ["email", "height", "mobile_number", "password"];
+        this.key_array = ["email", "username", "password"];
 
     }
     
@@ -37,6 +35,8 @@ class user {
     async register(success, error) {
         try {
             let instance = this;
+            console.log("instance",instance);
+            // return
             userModel.findOne({
                     "email": {
                         $regex: new RegExp(instance.email.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "i")

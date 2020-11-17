@@ -11,11 +11,7 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-    // username: {
-    //     type: String,
-    //     required: true
-    // },
-    mobile_number: {
+    username: {
         type: String,
         required: true
     },
@@ -23,10 +19,6 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    resetPasswordToken: String,
-    resetPasswordExpires: Date,
-    emailVerificationToken: String,
-    emailVerificationTokenExpire: Date,
 }, {
     collection: 'Users'
 });
