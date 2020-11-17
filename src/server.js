@@ -10,6 +10,8 @@ import error from './middlewares/error';
 import routes from './app/routes';
 import https from 'https';
 import fs from 'fs';
+import cron from './app/cron/index'
+
 require('./config/user.passport')(passport);
 
 // getting application environment
@@ -62,6 +64,7 @@ app.use(error.handler);
 //
 app.use(passport.initialize());
 // listen to requests
+// cron.job.start();
 
 
 app.listen(port, () =>

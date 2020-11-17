@@ -9,8 +9,9 @@ class user {
         this.email = data.email != undefined ? data.email : null;
         this.username = data.username != undefined ? data.username : null;
         this.password = data.password != undefined ? data.password : null;
+        this.profile = data.profile != undefined ? data.profile : null;
 
-        this.key_array = ["email", "username", "password"];
+        this.key_array = ["email", "username", "password","profile"];
 
     }
     
@@ -35,8 +36,6 @@ class user {
     async register(success, error) {
         try {
             let instance = this;
-            console.log("instance",instance);
-            // return
             userModel.findOne({
                     "email": {
                         $regex: new RegExp(instance.email.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "i")
@@ -75,8 +74,6 @@ class user {
                 }
             };
             userModel.findOne(condition).then( async user => {
-                // console.log('user :>> ', user.email,);
-                // return
                 const token = JWT.sign({
                     email: user.email,
                     _id: user._id,
@@ -86,8 +83,6 @@ class user {
                 let response = {
                     _id: user._id,
                     email: user.email,
-                    mobile: user.mobile_number,
-                    // username: user.username,
                 }
                 user.comparePassword(instance.password, (err, match) => {
                     if (match === true) {

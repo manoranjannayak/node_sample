@@ -2,6 +2,9 @@ import User from '../class/user';
 
 exports.register = async (req, res) => {
     try {
+        if(req.files){
+            req.body.profile = req.files[0].path
+        }
         var data = new User(req.body);
         data.register((success_data) => {
             res.status(success_data.code).send(success_data);
